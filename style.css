@@ -81,7 +81,7 @@ section { padding: 6rem 4rem; }
 .section-tag::before { content: '◆'; font-size: 0.45rem; }
 .section-title {
   font-family:  "Tangerine", cursive;
-  font-size: clamp(1.8rem, 4vw, 3rem); font-size: 10rem;
+  font-size: clamp(1.8rem, 4vw, 3rem); 
   color: var(--white); margin-bottom: 1rem; line-height: 1.2;
 }
 .section-sub {
