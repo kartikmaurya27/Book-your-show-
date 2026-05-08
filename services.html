@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Services – Magician Parth</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  .page-hero {
+    min-height: 45vh; padding: 10rem 4rem 5rem;
+    background: linear-gradient(180deg, rgba(124,58,237,0.06) 0%, transparent 100%);
+    border-bottom: 1px solid rgba(201,168,76,0.1);
+  }
+  .service-full-card {
+    display: grid; grid-template-columns: 200px 1fr; gap: 3rem;
+    background: var(--card); border: 1px solid rgba(201,168,76,0.1);
+    padding: 3rem; margin-bottom: 2rem;
+    transition: all 0.3s; align-items: center;
+  }
+  .service-full-card:hover { border-color: rgba(201,168,76,0.3); box-shadow: 0 10px 50px rgba(0,0,0,0.3); }
+  .service-full-icon { font-size: 5rem; text-align: center; }
+  .service-full-name { font-family: 'Cinzel Decorative', serif; font-size: 1.3rem; color: var(--gold); margin-bottom: 1rem; }
+  .service-full-desc { font-size: 1rem; color: var(--text-dim); line-height: 1.8; margin-bottom: 1.5rem; }
+  .service-features { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem; }
+  .feature-tag {
+    font-family: 'Space Mono', monospace; font-size: 0.62rem;
+    padding: 0.3rem 0.8rem; border: 1px solid rgba(201,168,76,0.2);
+    color: var(--gold-dark); letter-spacing: 0.08em;
+  }
+  .service-full-price {
+    font-family: 'Space Mono', monospace; font-size: 0.75rem;
+    color: var(--gold); display: flex; align-items: center; gap: 1.5rem;
+  }
+  .service-full-price a { color: var(--gold); text-decoration: underline; cursor: pointer; }
+
+  @media (max-width: 900px) {
+    .page-hero { padding: 8rem 1.5rem 3rem; }
+    .service-full-card { grid-template-columns: 1fr; }
+    .service-full-icon { font-size: 3.5rem; }
+  }
+</style>
+</head>
+<body data-page="services">
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-dot" id="cursorDot"></div>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo"><span>✦</span> Magician Parth</a>
+  <button class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html" data-page="home">Home</a></li>
+    <li><a href="about.html" data-page="about">About</a></li>
+    <li><a href="services.html" data-page="services">Services</a></li>
+    <li><a href="blog.html" data-page="blog">Blog</a></li>
+    <li><a href="contact.html" data-page="contact">Contact</a></li>
+  </ul>
+  <a href="contact.html" class="nav-cta">Book Now</a>
+</nav>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="section-tag">Our Specialities</div>
+  <h1 class="section-title">Shows Crafted<br>For Every Moment</h1>
+  <p class="section-sub">Each show is a universe of its own. Explore what magic we can bring to your event.</p>
+</div>
+
+<!-- SERVICE LISTINGS -->
+<section>
+  <div class="service-full-card">
+    <div class="service-full-icon">🎂</div>
+    <div>
+      <div class="service-full-name">Birthday Magic Show</div>
+      <p class="service-full-desc">Transform any birthday into a legendary celebration. Parth's birthday shows blend comedy, audience participation, and jaw-dropping illusions. The birthday star becomes the hero of the story, and every trick is designed to elicit pure joy from guests of all ages.</p>
+      <div class="service-features">
+        <span class="feature-tag">Ages 5–80+</span>
+        <span class="feature-tag">60–90 minutes</span>
+        <span class="feature-tag">Audience participation</span>
+        <span class="feature-tag">Custom birthday tricks</span>
+      </div>
+      <div class="service-full-price">
+        Starting at ₹8,000
+        <a href="contact.html">Book Now →</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="service-full-card">
+    <div class="service-full-icon">🏢</div>
+    <div>
+      <div class="service-full-name">Corporate Events</div>
+      <p class="service-full-desc">Sophisticated, polished, and perfectly pitched for professional audiences. From walk-around close-up magic during networking hours to grand stage illusions for gala evenings — Parth brings the extraordinary to corporate culture.</p>
+      <div class="service-features">
+        <span class="feature-tag">Team building</span>
+        <span class="feature-tag">Conference keynotes</span>
+        <span class="feature-tag">Product launches</span>
+        <span class="feature-tag">Award nights</span>
+      </div>
+      <div class="service-full-price">
+        Starting at ₹25,000
+        <a href="contact.html">Book Now →</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="service-full-card">
+    <div class="service-full-icon">💍</div>
+    <div>
+      <div class="service-full-name">Wedding Entertainment</div>
+      <p class="service-full-desc">Your wedding deserves magic that matches the magnitude of the moment. Parth's wedding packages include stunning couple-focused illusions, guest engagement during cocktail hour, and grand reception spectacles that create memories money can't buy.</p>
+      <div class="service-features">
+        <span class="feature-tag">Mehendi entertainment</span>
+        <span class="feature-tag">Cocktail hour magic</span>
+        <span class="feature-tag">Reception show</span>
+        <span class="feature-tag">Couple's signature trick</span>
+      </div>
+      <div class="service-full-price">
+        Starting at ₹20,000
+        <a href="contact.html">Book Now →</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="service-full-card">
+    <div class="service-full-icon">🎈</div>
+    <div>
+      <div class="service-full-name">Kids Party Shows</div>
+      <p class="service-full-desc">Designed specifically for little hearts and big imaginations. Colourful, energetic, and completely safe — our kids' shows incorporate storytelling, balloon art, and interactive magic that keeps even the most restless 4-year-olds glued to the show.</p>
+      <div class="service-features">
+        <span class="feature-tag">Ages 3–12</span>
+        <span class="feature-tag">Balloon animals</span>
+        <span class="feature-tag">Storytelling magic</span>
+        <span class="feature-tag">Safe props only</span>
+      </div>
+      <div class="service-full-price">
+        Starting at ₹6,000
+        <a href="contact.html">Book Now →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<section class="cta-band">
+  <div class="section-tag" style="justify-content:center;">Custom Packages Available</div>
+  <h2 class="section-title">Don't See Your<br>Event Type?</h2>
+  <p class="section-sub" style="margin:0 auto; text-align:center;">We also cater to school events, festival shows, charity galas, and private parties. Let's design something together.</p>
+  <div class="cta-btns">
+    <a href="contact.html" class="btn-primary">✦ Request Custom Quote</a>
+    <a class="wa-btn" href="https://wa.me/917754830127" target="_blank">💬 WhatsApp Us</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-logo">✦ Magician Parth</div>
+      <p class="footer-tagline">Creating wonder since 2012.</p>
+    </div>
+    <div>
+      <div class="footer-heading">Navigation</div>
+      <a class="footer-link" href="index.html">Home</a>
+      <a class="footer-link" href="about.html">About</a>
+      <a class="footer-link" href="contact.html">Contact</a>
+    </div>
+    <div>
+      <div class="footer-heading">Contact</div>
+      <span class="footer-link">📞 +91 77548 30127</span>
+      <span class="footer-link">✉ kartikmaurya27012006@gmail.com</span>
+    </div>
+    <div>
+      <div class="footer-heading">Follow</div>
+      <span class="footer-link">Instagram</span>
+      <span class="footer-link">YouTube</span>
+      <span class="footer-link">LinkedIn</span>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2025 Magician Parth. All rights reserved.</div>
+    <div class="footer-socials"><span class="social-icon">📸</span><span class="social-icon">🎬</span></div>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>

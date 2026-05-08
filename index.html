@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Magician Parth – Event Entertainment Services</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  /* HOME-SPECIFIC STYLES */
+  .hero {
+    min-height: 100vh; display: flex; align-items: center; justify-content: center;
+    position: relative; overflow: hidden; background: var(--black);
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 40%, rgba(201,168,76,0.07) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 40% at 80% 80%, rgba(124,58,237,0.08) 0%, transparent 50%),
+      radial-gradient(ellipse 30% 30% at 20% 20%, rgba(201,168,76,0.05) 0%, transparent 50%);
+  }
+  .hero-stars {
+    position: absolute; inset: 0;
+    background-image:
+      radial-gradient(1px 1px at 20% 30%, rgba(201,168,76,0.6) 0%, transparent 100%),
+      radial-gradient(1px 1px at 60% 20%, rgba(201,168,76,0.4) 0%, transparent 100%),
+      radial-gradient(1px 1px at 80% 60%, rgba(201,168,76,0.5) 0%, transparent 100%),
+      radial-gradient(1px 1px at 10% 70%, rgba(201,168,76,0.3) 0%, transparent 100%),
+      radial-gradient(1.5px 1.5px at 70% 40%, rgba(255,255,255,0.3) 0%, transparent 100%),
+      radial-gradient(1px 1px at 90% 10%, rgba(201,168,76,0.5) 0%, transparent 100%);
+    animation: twinkle 4s infinite alternate;
+  }
+  @keyframes twinkle { 0% { opacity: 0.6; } 100% { opacity: 1; } }
+  .hero-grid {
+    position: absolute; inset: 0;
+    background-image: linear-gradient(rgba(201,168,76,0.04) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(201,168,76,0.04) 1px, transparent 1px);
+    background-size: 80px 80px;
+    mask-image: radial-gradient(ellipse 70% 60% at center, black 20%, transparent 80%);
+  }
+  .floating-wand {
+    position: absolute; font-size: 4rem; opacity: 0.07;
+    animation: float 6s infinite ease-in-out; pointer-events: none;
+  }
+  .floating-wand:nth-child(1) { top: 15%; left: 8%; animation-delay: 0s; }
+  .floating-wand:nth-child(2) { top: 60%; right: 8%; animation-delay: 2s; font-size: 2.5rem; }
+  .floating-wand:nth-child(3) { bottom: 20%; left: 15%; animation-delay: 4s; font-size: 3rem; }
+  @keyframes float { 0%,100%{transform:translateY(0) rotate(-5deg)} 50%{transform:translateY(-20px) rotate(5deg)} }
+
+  .hero-content { text-align: center; position: relative; z-index: 2; padding: 2rem; }
+  .hero-tag {
+    font-family: 'Space Mono', monospace; font-size: 0.63rem;
+    letter-spacing: 0.4em; text-transform: uppercase; color: var(--gold);
+    margin-bottom: 2rem; display: flex; align-items: center; justify-content: center; gap: 1rem;
+  }
+  .hero-tag::before, .hero-tag::after { content: ''; width: 40px; height: 1px; background: var(--gold); opacity: 0.5; }
+  .hero-name {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: clamp(3rem, 8vw, 7rem); font-weight: 900;
+    line-height: 1; color: var(--white); margin-bottom: 0.3rem;
+    animation: heroGlow 3s infinite alternate;
+  }
+  @keyframes heroGlow {
+    0% { text-shadow: 0 0 40px rgba(201,168,76,0.2); }
+    100% { text-shadow: 0 0 100px rgba(201,168,76,0.5), 0 0 30px rgba(201,168,76,0.3); }
+  }
+  .hero-subtitle {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: clamp(1rem, 2.5vw, 1.8rem); font-weight: 400;
+    color: var(--gold); letter-spacing: 0.3em; margin-bottom: 1.5rem;
+  }
+  .hero-desc {
+    font-size: 1.2rem; font-style: italic; color: var(--text-dim);
+    max-width: 500px; margin: 0 auto 3rem; line-height: 1.8;
+  }
+  .hero-btns { display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; }
+  .hero-scroll {
+    position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);
+    display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+    font-family: 'Space Mono', monospace; font-size: 0.6rem;
+    letter-spacing: 0.2em; color: var(--text-dim); text-transform: uppercase;
+    animation: bounce 2s infinite;
+  }
+  @keyframes bounce { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(8px)} }
+  .hero-scroll::after { content: '↓'; font-size: 1rem; color: var(--gold); }
+
+  @media (max-width: 600px) { .hero-btns { flex-direction: column; align-items: center; } }
+</style>
+</head>
+<body data-page="home">
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="notif" id="notif">✦ Thanks! We'll be in touch soon.</div>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo"><span>✦</span> Magician Parth</a>
+  <button class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html" data-page="home">Home</a></li>
+    <li><a href="about.html" data-page="about">About</a></li>
+    <li><a href="services.html" data-page="services">Services</a></li>
+    <li><a href="blog.html" data-page="blog">Blog</a></li>
+    <li><a href="contact.html" data-page="contact">Contact</a></li>
+  </ul>
+  <a href="contact.html" class="nav-cta">Book Now</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-stars"></div>
+  <div class="hero-grid"></div>
+  <span class="floating-wand">🪄</span>
+  <span class="floating-wand">✨</span>
+  <span class="floating-wand">🎩</span>
+
+  <div class="hero-content">
+    <div class="hero-tag">India's Premier Event Magician</div>
+    <h1 class="hero-name">Magician<br>Parth</h1>
+    <div class="hero-subtitle">✦ Event Entertainment Services ✦</div>
+    <p class="hero-desc">Where wonder meets reality. Creating unforgettable magical experiences for every celebration.</p>
+    <div class="hero-btns">
+      <a href="contact.html" class="btn-primary">✦ Book Now</a>
+      <a href="services.html" class="btn-secondary">Explore Shows</a>
+    </div>
+  </div>
+  <div class="hero-scroll">Scroll</div>
+</section>
+
+<!-- SERVICE HIGHLIGHTS -->
+<section>
+  <div class="section-tag">What We Offer</div>
+  <h2 class="section-title">Magical Experiences<br>For Every Occasion</h2>
+  <p class="section-sub">From silent sleight-of-hand to high-energy stage productions — we define the modern magic show.</p>
+  <div class="services-grid">
+    <a href="services.html" class="service-card">
+      <span class="service-icon">🎂</span>
+      <div class="service-name">Birthday Magic Shows</div>
+      <p class="service-desc">Make every birthday legendary with mind-blowing illusions tailored for the star of the day.</p>
+      <div class="service-price"><span>Starting ₹8,000</span><span>60–90 min →</span></div>
+    </a>
+    <a href="services.html" class="service-card">
+      <span class="service-icon">🏢</span>
+      <div class="service-name">Corporate Events</div>
+      <p class="service-desc">Elevate your corporate gatherings with sophisticated close-up magic and grand stage illusions.</p>
+      <div class="service-price"><span>Starting ₹25,000</span><span>Custom →</span></div>
+    </a>
+    <a href="services.html" class="service-card">
+      <span class="service-icon">💍</span>
+      <div class="service-name">Wedding Entertainment</div>
+      <p class="service-desc">Add enchantment to your special day. Reception magic that guests will talk about for years.</p>
+      <div class="service-price"><span>Starting ₹20,000</span><span>2–3 hrs →</span></div>
+    </a>
+    <a href="services.html" class="service-card">
+      <span class="service-icon">🎈</span>
+      <div class="service-name">Kids Party Shows</div>
+      <p class="service-desc">Interactive, safe, and wildly entertaining shows designed to spark the imagination of children.</p>
+      <div class="service-price"><span>Starting ₹6,000</span><span>45–60 min →</span></div>
+    </a>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <div class="section-tag">What Clients Say</div>
+  <h2 class="section-title">Words of Wonder</h2>
+  <p class="section-sub">Real experiences from real celebrations across India.</p>
+  <div class="testi-grid">
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text">"Parth absolutely stole the show at our daughter's 7th birthday. The kids were completely spellbound — and honestly, so were the adults! Best entertainment decision we ever made."</p>
+      <div class="testi-author">
+        <div class="testi-avatar">R</div>
+        <div><div class="testi-name">Riya Mehta</div><div class="testi-event">Kids Birthday Party, Delhi</div></div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text">"Our annual company event needed something fresh. Parth delivered a stunning close-up magic session for 200+ employees. Professional, polished, and absolutely unforgettable."</p>
+      <div class="testi-author">
+        <div class="testi-avatar">A</div>
+        <div><div class="testi-name">Ankit Sharma</div><div class="testi-event">Corporate Event, Gurugram</div></div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text">"The magic show at our wedding reception was breathtaking. Parth is not just a magician — he is a storyteller. Our guests are still talking about it three months later!"</p>
+      <div class="testi-author">
+        <div class="testi-avatar">P</div>
+        <div><div class="testi-name">Priya & Vivek</div><div class="testi-event">Wedding Reception, Jaipur</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="testi-grid">
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text">"From intimate sleight-of-hand that happens in your own hands, to grand-scale illusions that defy the laws of physics.We craft a world of wonder tailored for every occasion—leaving your guests mesmerized long after the final curtain."</p>
+      <div class="testi-author">
+        <div class="testi-avatar">s</div>
+        <div><div class="testi-name">Shikha</div><div class="testi-event">Birthday Party, Noida</div></div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text">"From the first gasp of disbelief to the final standing ovation, we turn ordinary gatherings into extraordinary mysteries.Whether it’s a private party or a corporate gala, we bring the impossible to life and make you the star of the show."</p>
+      <div class="testi-author">
+        <div class="testi-avatar">P</div>
+        <div><div class="testi-name">Prateek Pathak</div><div class="testi-event">Corporate Event, Greater Noida</div></div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text">"From close-up miracles to breathtaking stage spectacles.We don't just perform tricks; we weave stories and craft magic that lingers in the mind.Experience the art of the impossible, perfectly designed for every audience"</p>
+      <div class="testi-author">
+        <div class="testi-avatar">M</div>
+        <div><div class="testi-name">Mohit</div><div class="testi-event">Reunion Party, Banaras</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<section class="cta-band">
+  <div class="section-tag" style="justify-content:center;">Ready to be amazed?</div>
+  <h2 class="section-title">Let's Create<br>Something Magical</h2>
+  <p class="section-sub" style="margin:0 auto 0; text-align:center;">Book Magician Parth for your next event and give your guests an experience they'll never forget.</p>
+  <div class="cta-btns">
+    <a href="contact.html" class="btn-primary">✦ Book Your Show</a>
+    <a class="wa-btn" href="https://wa.me/917754830127" target="_blank">💬 WhatsApp Us</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-logo">✦ Magician Parth</div>
+      <p class="footer-tagline">India's most celebrated event magician. Creating wonder, one show at a time — since 2012.</p>
+    </div>
+    <div>
+      <div class="footer-heading">Navigation</div>
+      <a class="footer-link" href="index.html">Home</a>
+      <a class="footer-link" href="about.html">About Us</a>
+      <a class="footer-link" href="services.html">Services</a>
+      <a class="footer-link" href="blog.html">Blog</a>
+      <a class="footer-link" href="contact.html">Contact</a>
+    </div>
+    <div>
+      <div class="footer-heading">Services</div>
+      <a class="footer-link" href="services.html">Birthday Shows</a>
+      <a class="footer-link" href="services.html">Corporate Events</a>
+      <a class="footer-link" href="services.html">Wedding Magic</a>
+      <a class="footer-link" href="services.html">Kids Parties</a>
+    </div>
+    <div>
+      <div class="footer-heading">Contact</div>
+      <span class="footer-link">📞 +91 7754830127</span>
+      <span class="footer-link">✉ kartikmaurya27012006@gmail.com</span>
+      <span class="footer-link">📍 Noida, India</span>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2025 Magician Parth. All rights reserved.</div>
+    <div class="footer-socials">
+      <span class="social-icon">📸</span><span class="social-icon">🎬</span><span class="social-icon">💼</span>
+    </div>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>

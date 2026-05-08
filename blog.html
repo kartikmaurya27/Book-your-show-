@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog – Magician Parth</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  .page-hero {
+    padding: 10rem 4rem 5rem;
+    background: linear-gradient(180deg, rgba(201,168,76,0.05) 0%, transparent 100%);
+    border-bottom: 1px solid rgba(201,168,76,0.1);
+  }
+  .blog-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 2rem; margin-top: 3rem;
+  }
+  .blog-card {
+    background: var(--card); border: 1px solid rgba(201,168,76,0.08);
+    overflow: hidden; transition: all 0.4s; cursor: pointer;
+    text-decoration: none; display: block; color: inherit;
+  }
+  .blog-card:hover { border-color: rgba(201,168,76,0.25); transform: translateY(-5px); box-shadow: 0 20px 60px rgba(0,0,0,0.4); }
+  .blog-img {
+    height: 190px; display: flex; align-items: center; justify-content: center; background-image: url('birthdayparty.png'); background-size: cover; background-position: center;
+    font-size: 4rem; position: relative; overflow: hidden;
+  }
+  .blog-img img {
+    width: 100%; height: 100%; object-fit: cover;
+  }
+  .blog-img::after {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(180deg, transparent 40%, rgba(10,10,15,0.8) 100%);
+  }
+  .blog-cat {
+    position: absolute; bottom: 1rem; left: 1rem;
+    font-family: 'Space Mono', monospace; font-size: 0.58rem;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    padding: 0.3rem 0.8rem; background: var(--gold); color: var(--black); z-index: 1;
+  }
+  .blog-body { padding: 2rem; }
+  .blog-date { font-family: 'Space Mono', monospace; font-size: 0.63rem; color: var(--text-dim); margin-bottom: 0.8rem; }
+  .blog-title { font-family: 'Cinzel Decorative', serif; font-size: 0.95rem; color: var(--white); margin-bottom: 1rem; line-height: 1.4; }
+  .blog-excerpt { font-size: 0.92rem; color: var(--text-dim); line-height: 1.7; margin-bottom: 1.5rem; }
+  .blog-read {
+    font-family: 'Space Mono', monospace; font-size: 0.63rem;
+    color: var(--gold); letter-spacing: 0.15em; text-transform: uppercase;
+    display: flex; align-items: center; gap: 0.5rem; transition: gap 0.3s;
+  }
+  .blog-card:hover .blog-read { gap: 1rem; }
+
+  @media (max-width: 900px) { .page-hero { padding: 8rem 1.5rem 3rem; } }
+</style>
+</head>
+<body data-page="blog">
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-dot" id="cursorDot"></div>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo"><span>✦</span> Magician Parth</a>
+  <button class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html" data-page="home">Home</a></li>
+    <li><a href="about.html" data-page="about">About</a></li>
+    <li><a href="services.html" data-page="services">Services</a></li>
+    <li><a href="blog.html" data-page="blog">Blog</a></li>
+    <li><a href="contact.html" data-page="contact">Contact</a></li>
+  </ul>
+  <a href="contact.html" class="nav-cta">Book Now</a>
+</nav>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="section-tag">Stories & Insights</div>
+  <h1 class="section-title">The Magic Blog</h1>
+  <p class="section-sub">Tips, ideas, and behind-the-scenes stories from the world of event entertainment.</p>
+</div>
+
+<!-- BLOG LISTING -->
+<section>
+  <div class="blog-grid">
+
+    <a href="#" class="blog-card">
+      <div class="blog-img" style="background: linear-gradient(135deg, #1a1a2e, #0f3460);">
+        <img src="birthdayparty.png" alt="Birthday Party Ideas">
+        <span class="blog-cat">Party Ideas</span>
+      </div>
+      <div class="blog-body">
+        <div class="blog-date">December 12, 2024</div>
+        <div class="blog-title">Top 5 Birthday Party Ideas That Will Blow Everyone's Mind</div>
+        <p class="blog-excerpt">Tired of the same old birthday routine? From treasure hunts with magical twists to illusionist-led storytelling sessions, here are five ideas guaranteed to elevate your next celebration.</p>
+        <div class="blog-read">Read More →</div>
+      </div>
+    </a>
+
+    <a href="#" class="blog-card">
+      <div class="blog-img" style="background: linear-gradient(135deg, #0a1628, #1e3a5f);">
+        <img src="kidmagic.png" alt="Insights">
+        <span class="blog-cat">Insights</span>
+      </div>
+      <div class="blog-body">
+        <div class="blog-date">November 28, 2024</div>
+        <div class="blog-title">How Magic Shows Entertain Kids & Spark Their Imagination</div>
+        <p class="blog-excerpt">Child psychologists and educators agree — live magic shows do far more than entertain. They build attention spans, encourage curiosity, and introduce kids to the beauty of the impossible.</p>
+        <div class="blog-read">Read More →</div>
+      </div>
+    </a>
+
+    <a href="#" class="blog-card">
+      <div class="blog-img" style="background: linear-gradient(135deg, #1a0a28, #3d1a5f);">
+        <img src="wedingparty.png" alt="Weddings">
+        <span class="blog-cat">Weddings</span>
+      </div>
+      <div class="blog-body">
+        <div class="blog-date">November 5, 2024</div>
+        <div class="blog-title">Why Every Indian Wedding Needs a Magician in 2025</div>
+        <p class="blog-excerpt">Between DJ sets and dance performances, there's a new wedding entertainment trend sweeping across India — and it involves illusions, gasps, and unforgettable moments.</p>
+        <div class="blog-read">Read More →</div>
+      </div>
+    </a>
+
+    <a href="#" class="blog-card">
+      <div class="blog-img" style="background: linear-gradient(135deg, #0a1a10, #1a3a20);">
+        <img src="corparty.jpg" alt="Corporate">
+        <span class="blog-cat">Corporate</span>
+      </div>
+      <div class="blog-body">
+        <div class="blog-date">October 18, 2024</div>
+        <div class="blog-title">Magic as a Team-Building Tool: The Science Behind the Wow</div>
+        <p class="blog-excerpt">Fortune 500 companies are increasingly turning to mentalism and close-up magic for team-building. We explore the psychology of shared wonder and why it works.</p>
+        <div class="blog-read">Read More →</div>
+      </div>
+    </a>
+
+    <a href="#" class="blog-card">
+      <div class="blog-img" style="background: linear-gradient(135deg, #1a1010, #3a1010);">
+        <img src="pro.jpg" alt="Behind the Scenes">
+        <span class="blog-cat">Behind the Scenes</span>
+      </div>
+      <div class="blog-body">
+        <div class="blog-date">September 30, 2024</div>
+        <div class="blog-title">A Day in the Life of a Professional Magician</div>
+        <p class="blog-excerpt">From morning rehearsals to the final bow — Parth takes us behind the curtain and reveals what it truly takes to pull off a flawless 90-minute performance night after night.</p>
+        <div class="blog-read">Read More →</div>
+      </div>
+    </a>
+
+    <a href="#" class="blog-card">
+      <div class="blog-img" style="background: linear-gradient(135deg, #0a0a1a, #1a0a3a);">
+        <img src="coust.png" alt="Kids & Families">
+        <span class="blog-cat">Kids & Families</span>
+      </div>
+      <div class="blog-body">
+        <div class="blog-date">September 10, 2024</div>
+        <div class="blog-title">5 Questions Parents Ask Before Booking a Kids' Magic Show</div>
+        <p class="blog-excerpt">Safety, age-appropriateness, duration, and engagement — we answer the most common questions parents have before booking entertainment for their little ones.</p>
+        <div class="blog-read">Read More →</div>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-logo">✦ Magician Parth</div>
+      <p class="footer-tagline">Creating wonder since 2012.</p>
+    </div>
+    <div>
+      <div class="footer-heading">Navigation</div>
+      <a class="footer-link" href="index.html">Home</a>
+      <a class="footer-link" href="about.html">About</a>
+      <a class="footer-link" href="contact.html">Contact</a>
+    </div>
+    <div>
+      <div class="footer-heading">Contact</div>
+      <span class="footer-link">📞 +91 77548 30127</span>
+      <span class="footer-link">✉ kartikmaurya27012006@gmail.com</span>
+    </div>
+    <div>
+      <div class="footer-heading">Follow</div>
+      <span class="footer-link">Instagram</span>
+      <span class="footer-link">YouTube</span>
+      <span class="footer-link">LinkedIn</span>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2025 Magician Parth. All rights reserved.</div>
+    <div class="footer-socials"><span class="social-icon">📸</span><span class="social-icon">🎬</span></div>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us – Magician Parth</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  .page-hero {
+    min-height: 50vh; padding: 10rem 4rem 5rem;
+    background: linear-gradient(180deg, rgba(201,168,76,0.06) 0%, transparent 100%);
+    border-bottom: 1px solid rgba(201,168,76,0.1);
+    position: relative; overflow: hidden;
+  }
+  .page-hero::after {
+    content: '✦'; position: absolute; font-size: 20rem;
+    right: 8%; top: 10%; color: rgba(201,168,76,0.03); pointer-events: none;
+    font-family: serif;
+  }
+  .about-story { display: grid; grid-template-columns: 1fr 1.4fr; gap: 5rem; align-items: center; }
+  .about-img {
+    aspect-ratio: 4/4; background: url('img.png') no-repeat center/cover;
+    border: 1px solid rgba(201,168,76,0.15);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 8rem; position: relative; overflow: hidden;
+  }
+  .about-img::before {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(135deg, rgba(201,168,76,0.05), rgba(124,58,237,0.05));
+  }
+  .story-text { font-size: 1.1rem; color: var(--text-dim); line-height: 1.9; }
+  .story-text p { margin-bottom: 1.5rem; }
+  .stats-row { display: flex; gap: 3rem; margin: 2.5rem 0; flex-wrap: wrap; }
+  .stat { text-align: center; }
+  .stat-num { font-family: 'Cinzel Decorative', serif; font-size: 2.5rem; color: var(--gold); }
+  .stat-label { font-family: 'Space Mono', monospace; font-size: 0.62rem; color: var(--text-dim); letter-spacing: 0.2em; text-transform: uppercase; margin-top: 0.3rem; }
+
+  .why-section { background: var(--deep); border-top: 1px solid rgba(201,168,76,0.08); }
+  .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; margin-top: 3rem; }
+  .why-card {
+    background: var(--card); border: 1px solid rgba(201,168,76,0.08);
+    padding: 2rem; transition: all 0.3s;
+  }
+  .why-card:hover { border-color: rgba(201,168,76,0.25); transform: translateY(-3px); }
+  .why-icon { font-size: 2rem; margin-bottom: 1rem; }
+  .why-title { font-family: 'Cinzel Decorative', serif; font-size: 0.88rem; color: var(--gold); margin-bottom: 0.7rem; }
+  .why-desc { font-size: 0.9rem; color: var(--text-dim); line-height: 1.7; }
+
+  @media (max-width: 900px) {
+    .page-hero { padding: 8rem 1.5rem 3rem; }
+    .about-story { grid-template-columns: 1fr; }
+    .stats-row { gap: 2rem; }
+  }
+</style>
+</head>
+<body data-page="about">
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-dot" id="cursorDot"></div>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo"><span>✦</span> Magician Parth</a>
+  <button class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html" data-page="home">Home</a></li>
+    <li><a href="about.html" data-page="about">About</a></li>
+    <li><a href="services.html" data-page="services">Services</a></li>
+    <li><a href="blog.html" data-page="blog">Blog</a></li>
+    <li><a href="contact.html" data-page="contact">Contact</a></li>
+  </ul>
+  <a href="contact.html" class="nav-cta">Book Now</a>
+</nav>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="section-tag">Our Story</div>
+  <h1 class="section-title">The Man Behind<br>The Magic</h1>
+  <p class="section-sub">A journey from childhood wonder to India's premier event entertainment brand.</p>
+</div>
+
+<!-- FOUNDER STORY -->
+<section>
+  <div class="about-story">
+    <div class="about-img"></div>
+    <div>
+      <div class="section-tag">Founder's Journey</div>
+      <h2 class="section-title" style="font-size:clamp(1.4rem,3vw,2rem); margin-bottom:1.5rem;">Parth Sharma –<br>Master Illusionist</h2>
+      <div class="story-text">
+        <p>It started with a borrowed deck of cards at age nine. Young Parth, growing up in Delhi, was captivated by the impossible — and spent every evening practising sleight-of-hand in front of a cracked mirror until the moves became second nature.</p>
+        <p>After formal training under legendary mentalist <em>Rajan Kumar</em> and a year-long apprenticeship in Mumbai's entertainment circuit, Parth launched his solo career in 2012. What began as weekend birthday shows quickly evolved into full-scale corporate spectacles and grand wedding productions.</p>
+        <p>Today, with over <strong style="color:var(--gold)">1,200 shows</strong> performed across 40+ cities and international appearances in Dubai and Singapore, Parth Sharma is not just a magician — he is a storyteller of the impossible.</p>
+      </div>
+      <div class="stats-row">
+        <div class="stat"><div class="stat-num">12+</div><div class="stat-label">Years Experience</div></div>
+        <div class="stat"><div class="stat-num">1,200+</div><div class="stat-label">Shows Performed</div></div>
+        <div class="stat"><div class="stat-num">40+</div><div class="stat-label">Cities</div></div>
+        <div class="stat"><div class="stat-num">5 ★</div><div class="stat-label">Avg. Rating</div></div>
+      </div>
+      <a href="contact.html" class="btn-primary">✦ Book Parth</a>
+    </div>
+  </div>
+</section>
+
+<!-- WHY CHOOSE US -->
+<section class="why-section">
+  <div class="section-tag">Why Choose Us</div>
+  <h2 class="section-title">The Parth Difference</h2>
+  <p class="section-sub">Every great show shares a secret. Ours is relentless preparation and genuine passion.</p>
+  <div class="why-grid">
+    <div class="why-card">
+      <div class="why-icon">🎯</div>
+      <div class="why-title">Fully Customised</div>
+      <p class="why-desc">No two shows are alike. Every performance is tailored to your event's theme, audience, and vision.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">⚡</div>
+      <div class="why-title">Punctual & Professional</div>
+      <p class="why-desc">We arrive early, set up quietly, and deliver on time. Zero drama — except on stage.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">🛡️</div>
+      <div class="why-title">Child-Safe Performances</div>
+      <p class="why-desc">All props, techniques, and interactions are thoroughly vetted to be safe and age-appropriate.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">🌟</div>
+      <div class="why-title">Award-Winning Shows</div>
+      <p class="why-desc">Recognised as "Best Event Entertainer" by Event India Magazine three years running.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">📞</div>
+      <div class="why-title">Dedicated Support</div>
+      <p class="why-desc">Pre-event consultation, day-of coordination, and post-event follow-up included in every booking.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">🌍</div>
+      <div class="why-title">Pan-India + International</div>
+      <p class="why-desc">Available across India and for international bookings in UAE, Singapore & UK.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-logo">✦ Magician Parth</div>
+      <p class="footer-tagline">Creating wonder since 2012.</p>
+    </div>
+    <div>
+      <div class="footer-heading">Navigation</div>
+      <a class="footer-link" href="index.html">Home</a>
+      <a class="footer-link" href="services.html">Services</a>
+      <a class="footer-link" href="contact.html">Contact</a>
+    </div>
+    <div>
+      <div class="footer-heading">Contact</div>
+      <span class="footer-link">📞 +91 77548 30127</span>
+      <span class="footer-link">✉ kartikmaurya27012006@gmail.com</span>
+    </div>
+    <div>
+      <div class="footer-heading">Follow</div>
+      <span class="footer-link">Instagram</span>
+      <span class="footer-link">YouTube</span>
+      <span class="footer-link">LinkedIn</span>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2025 Magician Parth. All rights reserved.</div>
+    <div class="footer-socials"><span class="social-icon">📸</span><span class="social-icon">🎬</span><span class="social-icon">💼</span></div>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>
